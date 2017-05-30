@@ -1,0 +1,48 @@
+﻿@using Soabel.DemoCrud.WebApp.ViewModel;
+@model IEnumerable<PersonaModel>
+@{
+    ViewData["Title"] = "Lista de Personas";
+}
+<h1>@ViewData["Title"].</h1>
+
+
+
+@Html.ActionLink("Nuevo", "Nuevo", "Persona", new { }, new { @class = "btn btn-primary" })
+
+
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Apellidos</th>
+                <th>Nombres</th>
+                <th>DNI</th>
+                <th>F. Nacimiento</th>
+                <th>Dirección</th>
+                <th>Edad</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PersonaModel persona in Model)
+            {
+                <tr>
+                    <td>@persona.Id</td>
+                    <td>@persona.Apellidos</td>
+                    <td>@persona.Nombres</td>
+                    <td>@persona.DNI</td>
+                    <td>@persona.FechaNacimiento.ToShortDateString()</td>
+                    <td>@persona.Direccion</td>
+                    <td>@persona.Edad</td>
+                    <td>@Html.ActionLink("Editar", "Editar", "Persona", new { @id = persona.Id },new {@class = "btn btn-primary" })</td>
+                    <td>@Html.ActionLink("Eliminar", "Eliminar", "Persona", new { @id = persona.Id }, new { @class = "btn btn-primary" })</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
