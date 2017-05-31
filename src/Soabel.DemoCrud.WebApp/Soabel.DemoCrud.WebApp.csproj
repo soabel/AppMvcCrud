@@ -5,6 +5,8 @@
     <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.0.2" />
+    <PackageReference Include="EntityFramework" Version="6.1.3" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
@@ -14,6 +16,11 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Soabel.DemoCrud.Application\Soabel.DemoCrud.Application.csproj" />
+    <ProjectReference Include="..\Soabel.DemoCrud.Domain\Soabel.DemoCrud.Domain.csproj" />
+    <ProjectReference Include="..\Soabel.DemoCrud.Persistence\Soabel.DemoCrud.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

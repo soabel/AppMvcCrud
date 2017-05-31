@@ -7,6 +7,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Soabel.DemoCrud.Persistence.EntityFramework;
+using Soabel.DemoCrud.Persistence;
+using Soabel.DemoCrud.Domain.Base;
+using Soabel.DemoCrud.Application.Service;
+using Soabel.DemoCrud.Application.Contract;
+using System.Data.Entity;
+
+using AutoMapper;
+using Soabel.DemoCrud.WebApp.Adapters;
 
 namespace Soabel.DemoCrud.WebApp
 {
@@ -29,11 +38,25 @@ namespace Soabel.DemoCrud.WebApp
         {
             // Add framework services.
             services.AddMvc();
+
+            //Contexto
+            var cadenaConexion = Configuration.GetConnectionString("DemoDatabaseConnection");
+            services.AddScoped<DbContext,DemoDatabaseContext>(x=> new DemoDatabaseContext(cadenaConexion));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient(typeof(IRepository<>), typeof( Repository<>));
+            services.AddTransient<IPersonaService, PersonaService>();
+            
+            //Automapper
+            Mapper.Initialize(x=> x.AddProfile<MappingProfile>());
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+
+            
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
