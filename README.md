@@ -1,6 +1,10 @@
 # AppMvcCrud
 Ejemplo de demo CRUD con AspNet MVC y N gestores de Base de Datos.
 
+Cuadro de escenarios y colaboraciones:
+
+https://drive.google.com/open?id=0B_KwlAfagHy4STA4cWVjdXlzN3c
+
 
 ## 1. AppMvcCrud/src/MVC Clasico - EF6/
 Se utilizó las siguientes tecnologías.
