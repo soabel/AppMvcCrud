@@ -12,6 +12,17 @@ Se utilizó las siguientes tecnologías.
 - SQL Server (se utilizó la versión local)
 - Automapper
 - Patrón Repository y UnitOfWork.
+### Importante !!!
+Para crear la Base de datos ejecutar el Test: PersistenceTest.InsertarPersonaTest  en el proyecto de test: Soabel.DemoCrud.Tests
+
+
+## 2. AppMvcCrud/src/MVC Clasico - Hibernate/
+Se utilizó las siguientes tecnologías.
+- ASPNet MVC clásico, Hibernate 4.1, NetFramework 4.5.2, NetCore (Inyeccion de dependencia), 
+- SQL Server (se utilizó la versión local)
+- Automapper
+- Patrón Repository y UnitOfWork.
+
 
 ## 2. AppMvcCrud/src/Angular - Firebase/
 Proximamente...
